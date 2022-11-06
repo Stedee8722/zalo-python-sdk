@@ -9,12 +9,12 @@ class Zalo3rdAppClient(ZaloBaseClient):
         self.app_info = app_info
 
     def get_login_url(self):
-        login_endpoint = "https://oauth.zaloapp.com/v3/auth?app_id=%s&redirect_uri=%s" % (
+        login_endpoint = "https://oauth.zaloapp.com/v4/auth?app_id=%s&redirect_uri=%s" % (
             self.app_info.app_id, self.app_info.secret_key)
         return login_endpoint
 
     def get_access_token(self, oauth_code):
-        accesstoken_endpoint = "https://oauth.zaloapp.com/v3/access_token"
+        accesstoken_endpoint = "https://oauth.zaloapp.com/v4/access_token"
         params = {
             'app_id': self.app_info.app_id,
             'app_secret': self.app_info.secret_key,
